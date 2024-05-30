@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>deniz-vorpui</title>
+</head>
+
+<body class="font-inter hidden">
+    <div id="hud1class" class="hud1class">
+        <div id="hud1" class="absolute bottom-2 left-5 flex">
+            <div id="health" class="bg-[#0b9054]/30 w-11 h-11 circle border-2 border-[#0b9054] rounded-full mr-1">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-heartbeat text-xl z-40 text-white'></i>
+                </div>
+                <div id="healthInside" class="w-full healthInside bottom-0 absolute bg-[#0b9054] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="armor" class="bg-[#3a7cc2]/30 w-11 h-11 circle border-2 border-[#3a7cc2] rounded-full mr-1">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-shield-alt text-xl z-40 text-white'></i>
+                </div>
+                <div id="armorInside" class="w-full armorInside bottom-0 absolute bg-[#3a7cc2] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="hungry" class="bg-[#b57d13]/30 w-11 h-11 circle border-2 border-[#b57d13] rounded-full mr-1">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-hamburger text-xl z-40 text-white'></i>
+                </div>
+                <div id="hungryInside" class="w-full hungryInside bottom-0 absolute bg-[#b57d13] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="thirst" class="bg-[#0f84a0]/30 w-11 h-11 circle border-2 border-[#0f84a0] rounded-full mr-1">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-tint text-xl z-40 text-white'></i>
+                </div>
+                <div id="thirstInside" class="w-full thirstInside bottom-0 absolute bg-[#0f84a0] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="oxygen" class="bg-[#254c89]/30 w-11 h-11 circle border-2 border-[#254c89] rounded-full mr-1">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-lungs text-xl z-40 text-white'></i>
+                </div>
+                <div id="oxygenInside" class="w-full oxygenInside bottom-0 absolute bg-[#254c89] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="stress" class="bg-[#7e353f]/30 w-11 h-11 circle border-2 border-[#7e353f] rounded-full">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-brain text-xl z-40 text-white'></i>
+                </div>
+                <div id="stressInside" class="w-full stressInside bottom-0 absolute bg-[#7e353f] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div class="flex flex-col">
+                <div id="talking3" class="bg-transparent w-5 h-5 circle talkingcolor rounded-full flex justify-center items-center ml-0.5">
+                    <div id="talking2" class="bg-transparent w-3.5 h-3.5 circle talkingcolor rounded-full flex justify-center items-center">
+                        <div id="talking1" class="bg-transparent w-2 h-2 circle talkingcolor rounded-full"></div>
+                    </div>
+                </div>
+
+                <div id="radioState" class="w-2 h-2 radiocolor rounded-full ml-[7px] mt-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HUD 2 -->
+    <div id="hud2class" class="hud2class">
+        <div id="aracici">
+            <div id="map">
+                <div class="flex fixed -bottom-[9.4%] -left-[6.0%]">
+                    <svg width="400" height="400">
+                        <circle
+                            class="progressplayer"
+                            stroke="#000000"
+                            stroke-width="4"
+                            style="stroke-opacity: 1.0"
+                            fill="#49894900"
+                            r="105"
+                            cx="150"
+                            cy="150"
+                            stroke-dasharray="360 0"
+                            stroke-dashoffset="0"
+                        />
+                    </svg>
+                </div>
+
+                <div class="flex fixed -bottom-[9.4%] -left-[6.0%]">
+                    <svg width="400" height="400">
+                        <circle
+                            class="progressplayer"
+                            stroke="#000000"
+                            stroke-width="8.6"
+                            style="stroke-opacity: 1.0"
+                            fill="#49894900"
+                            r="109.5"
+                            cx="150"
+                            cy="150"
+                            stroke-dasharray="360 0"
+                            stroke-dashoffset="0"
+                        />
+                    </svg>
+                </div>
+
+                <div class="flex fixed -bottom-[9.4%] -left-[6.0%]">
+                    <svg width="400" height="400">
+                        <circle
+                            class="progressplayer healthcar"
+                            stroke="#147d4a"
+                            stroke-width="8.6"
+                            style="stroke-opacity: 1.0"
+                            fill="#49894900"
+                            r="110"
+                            cx="150"
+                            cy="150"
+                            stroke-dasharray="70 30"
+                            stroke-dashoffset="10"
+                        />
+                    </svg>
+                </div>
+
+                <div class="flex fixed -bottom-[9.4%] -left-[6.0%]">
+                    <svg width="400" height="400">
+                        <circle
+                            class="progressplayer armorcar"
+                            stroke="#508cdc"
+                            stroke-width="8"
+                            style="stroke-opacity: 1.0"
+                            fill="#1063b900"
+                            r="110"
+                            cx="150"
+                            cy="150"
+                            stroke-dasharray="70 30"
+                            stroke-dashoffset="0"
+                        />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="vehiclehuds" class="flex-row absolute bottom-[134px]">
+            <div id="hungry" class="bg-[#b57d13]/30 w-11 h-11 circle border-2 border-[#b57d13] rounded-full mr-1 ml-[90px] -translate-y-[0px] flex flex-col">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-hamburger text-xl z-40 text-white'></i>
+                </div>
+                <div id="hungryInside" class="w-full hungryInside bottom-0 absolute bg-[#b57d13] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="thirst" class="bg-[#0f84a0]/30 w-10 h-10 circle border-2 border-[#0f84a0] rounded-full mr-1 ml-[50px] -translate-y-[25px] flex flex-col">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-tint text-xl z-40 text-white'></i>
+                </div>
+                <div id="thirstInside" class="w-full thirstInside bottom-0 absolute bg-[#0f84a0] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="oxygen" class="bg-[#254c89]/30 w-9 h-9 circle border-2 border-[#254c89] rounded-full mr-1 ml-[19px] -translate-y-[38px] flex flex-col">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-lungs text-lg z-40 text-white'></i>
+                </div>
+                <div id="oxygenInside" class="w-full oxygenInside bottom-0 absolute bg-[#254c89] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div id="stress" class="bg-[#7e353f]/30 w-8 h-8 circle border-2 border-[#7e353f] rounded-full ml-[3px] -translate-y-[39px] flex flex-col">
+                <div class="flex justify-center items-center h-full">
+                    <i class='fas fa-brain text-sm z-40 text-white'></i>
+                </div>
+                <div id="stressInside" class="w-full stressInside bottom-0 absolute bg-[#7e353f] flex justify-center items-center z-30"></div>
+            </div>
+
+            <div>
+                <div id="talking3" class="bg-transparent w-5 h-5 circle talkingcolor rounded-full flex justify-center items-center ml-[5px] -translate-y-[39px]">
+                    <div id="talking2" class="bg-transparent w-3.5 h-3.5 circle talkingcolor rounded-full flex justify-center items-center">
+                        <div id="talking1" class="bg-transparent w-2 h-2 circle talkingcolor rounded-full"></div>
+                    </div>
+                </div>
+
+                <div id="radioState" class="w-2 h-2 radiocolor rounded-full ml-[10px] -translate-y-9"></div>
+            </div>
+        </div>
+
+        <div id="carhud" class="absolute bottom-0">
+            <!-- <div id="stress" class="bg-zinc-900 w-[3rem] h-[3rem] circle rounded-full -translate-y-[10.5rem] absolute bottom-0 left-[15.7rem]">
+            </div>
+            <div id="stress2" class="bg-zinc-900 w-[5.2rem] h-[5.2rem] circle rounded-full -translate-y-[5.2rem] absolute bottom-0 left-[15.9rem]">
+            </div>
+            <div id="stress" class="bg-zinc-900 w-[3.5rem] h-[3.5rem] circle rounded-full -translate-y-[2rem] absolute bottom-0 left-[14.4rem]">
+            </div> -->
+
+            <!-- <div class="-translate-y-[10.5rem] absolute bottom-0 left-[15.7rem]">
+                <svg width="70" height="70">
+                    <circle
+                        class="progressplayer"
+                        stroke="#606469"
+                        stroke-width="4"
+                        style="stroke-opacity: 1.0"
+                        fill="#202025"
+                        r="25"
+                        cx="35"
+                        cy="35"
+                        stroke-dasharray="0"
+                        stroke-dashoffset="0"
+                    />
+                </svg>
+            </div> -->
+            <div class="-translate-y-[5.2rem] absolute bottom-0 left-[15.9rem] z-20">
+                <svg width="80" height="80">
+                    <circle
+                        id="kmhcar"
+                        class="progressplayer z-30"
+                        stroke="#fff"
+                        stroke-width="4"
+                        style="stroke-opacity: 1.0"
+                        fill="#202025"
+                        r="30"
+                        cx="40"
+                        cy="40"
+                        stroke-dasharray="188.5"
+                        stroke-dashoffset="0"
+                    />
+                    <text x="50%" y="50%" text-anchor="middle" fill="white" class="text-lg" id="vehiclekmhtext">182</text>
+                    <text x="50%" y="70%" text-anchor="middle" fill="gray" class="text-xs">KM</text>
+                </svg>
+            </div>
+            <div class="-translate-y-[5.2rem] absolute bottom-0 left-[15.9rem] z-10">
+                <svg width="80" height="80">
+                    <circle
+                        id="kmhcar2"
+                        class="progressplayer z-30"
+                        stroke="#606469"
+                        stroke-width="4"
+                        style="stroke-opacity: 1.0"
+                        fill="transparent"
+                        r="30"
+                        cx="40"
+                        cy="40"
+                        stroke-dasharray="188.5"
+                        stroke-dashoffset="0"
+                    />
+                </svg>
+            </div>
+            
+            <div class="-translate-y-[2rem] absolute bottom-0 left-[14.4rem] z-20">
+                <svg id="fuelSvg" width="70" height="70">
+                    <circle
+                        id="fuelcar"
+                        class="progressplayer"
+                        stroke="#fff"
+                        stroke-width="4"
+                        style="stroke-opacity: 1.0"
+                        fill="#202025"
+                        r="25"
+                        cx="35"
+                        cy="35"
+                        stroke-dasharray="157"
+                        stroke-dashoffset="0"
+                    />
+                    <image x="38%" y="36%" href="gas-pump-solid.png"/>
+                </svg>
+            </div>
+            <div class="-translate-y-[2rem] absolute bottom-0 left-[14.4rem] z-10">
+                <svg id="fuelSvg" width="70" height="70">
+                    <circle
+                        id="fuelcar2"
+                        class="progressplayer"
+                        stroke="#606469"
+                        stroke-width="4"
+                        style="stroke-opacity: 1.0"
+                        fill="transparent"
+                        r="25"
+                        cx="35"
+                        cy="35"
+                        stroke-dasharray="157"
+                        stroke-dashoffset="0"
+                    />
+                </svg>
+            </div>
+             <!-- Çemberin çevresi: 2 * π * r = 157 -->
+            
+            
+
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

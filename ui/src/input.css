@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    @variants responsive {
+      
+        .circle {
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        .progressplayer {
+            -webkit-transition: 0.35s stroke-dashoffset;
+            -o-transition: 0.35s stroke-dashoffset;
+            transition: 0.35s stroke-dashoffset;
+            -webkit-transform: rotate(-270deg);
+            -ms-transform: rotate(-270deg);
+            transform: rotate(-270deg);
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+        }
+
+        .hud1class {
+            display: none;
+        }
+
+        .hud2class {
+            display: none;
+        }
+
+        .healthInside {
+            height: 100%;
+            transition: 0.5s;
+        }
+        .armorInside {
+            height: 100%;
+            transition: 0.5s;
+        }
+        .hungryInside { 
+            height: 100%;
+            transition: 0.5s;
+        }
+        .thirstInside {
+            height: 100%;
+            transition: 0.5s;
+        }
+        .oxygenInside {
+            height: 100%;
+            transition: 0.5s;
+        }
+        .stressInside {
+            height: 100%;
+            transition: 0.5s;
+        }
+
+        #talking1 {
+            border-width: 2px;
+        }
+        #talking2 {
+            border-width: 2px;
+        }
+        #talking3 {
+            border-width: 0px;
+        }
+        .talkingcolor {
+            border-color: rgb(249, 249, 249);
+        }
+        .radiocolor {
+            background-color: rgb(249, 249, 249);
+        }
+
+    }
+}
