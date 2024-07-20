@@ -16,15 +16,15 @@ AddEventHandler('bad:playerdead', function(dead)
 end)
 
 -- ses seviyesi, bagirma, fisildama ve normal (3 = bagirma, 2 = normal, 1 = fisildama)
-RegisterNetEvent('forealdeniz:setVoiceLevel')
-AddEventHandler('forealdeniz:setVoiceLevel', function(level)
+RegisterNetEvent('agac-hud:setVoiceLevel')
+AddEventHandler('agac-hud:setVoiceLevel', function(level)
     voiceLevel = level
 end)
 
 -- konusuyor/konusmuyor (true = konusuyor, false = konusmuyor)
 -- eger eventi triggerlarken radio kismini true yaparsaniz konusma rengi farklilasir
-RegisterNetEvent('forealdeniz:setTalkingState')
-AddEventHandler('forealdeniz:setTalkingState', function(state, radio)
+RegisterNetEvent('agac-hud:setTalkingState')
+AddEventHandler('agac-hud:setTalkingState', function(state, radio)
     if radio == true then
         isTalking = 'radio'
     else
@@ -33,13 +33,13 @@ AddEventHandler('forealdeniz:setTalkingState', function(state, radio)
 end)
 
 -- aktif olarak bir telsizde mi (true = telsizde, false = telsizde degil)
-RegisterNetEvent('forealdeniz:setRadioState')
-AddEventHandler('forealdeniz:setRadioState', function(state)
+RegisterNetEvent('agac-hud:setRadioState')
+AddEventHandler('agac-hud:setRadioState', function(state)
     isRadio = state
 end)
 
-RegisterNetEvent('forealdeniz:loadHud')
-AddEventHandler('forealdeniz:loadHud', function()
+RegisterNetEvent('agac-hud:loadHud')
+AddEventHandler('agac-hud:loadHud', function()
     isLoggedIn = true
     hudStatus = true
     SendNUIMessage({
@@ -48,7 +48,7 @@ AddEventHandler('forealdeniz:loadHud', function()
 end)
 
 RegisterCommand('debughud', function()
-    TriggerEvent('forealdeniz:loadHud')
+    TriggerEvent('agac-hud:loadHud')
 end)
 
 RegisterCommand('hud', function()
@@ -186,13 +186,13 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(60000)
 		if isLoggedIn then
-			TriggerServerEvent("bad-hud:savedata:server", hungry, thirst)
+			TriggerServerEvent("agac-hud:savedata:server", hungry, thirst)
 		end
 	end
 end)
 
-RegisterNetEvent('bad-basicneeds:eatOrDrink')
-AddEventHandler('bad-basicneeds:eatOrDrink', function(itemName, eatOrDrink, addValue, EODTime)
+RegisterNetEvent('agac-hud:eatOrDrink')
+AddEventHandler('agac-hud:eatOrDrink', function(itemName, eatOrDrink, addValue, EODTime)
 	if not IsAnimated then
 		QBCore.Functions.TriggerCallback("bad-base:removeItem", function(result)
 			if result then
@@ -209,12 +209,12 @@ AddEventHandler('bad-basicneeds:eatOrDrink', function(itemName, eatOrDrink, addV
 					if eatOrDrink == "eat" then
 						local yeniDeger = hungry + minAddStatusValue 
 						hungry = yeniDeger
-                        TriggerServerEvent("bad-hud:savedata:server", hungry, thirst)
+                        TriggerServerEvent("agac-hud:savedata:server", hungry, thirst)
 						if yeniDeger > 100.0 then hungry = 100.0 end
 					elseif eatOrDrink == "drink" then
 						local yeniDeger = thirst + minAddStatusValue 
 						thirst = yeniDeger
-                        TriggerServerEvent("bad-hud:savedata:server", hungry, thirst)
+                        TriggerServerEvent("agac-hud:savedata:server", hungry, thirst)
 						if yeniDeger > 100.0 then thirst = 100.0 end
 					end
 				end
@@ -223,32 +223,8 @@ AddEventHandler('bad-basicneeds:eatOrDrink', function(itemName, eatOrDrink, addV
 	end
 end)
 
--- RegisterNetEvent('bad-basicneeds:mre')
--- AddEventHandler('bad-basicneeds:mre', function(itemName, EODTime)
--- 	if not IsAnimated then
--- 		QBCore.Functions.TriggerCallback("bad-base:removeItem", function(result)
--- 			if result then
--- 				local totalTime = EODTime
--- 					animasyonVeProp(adYemek, animYemek, bodyYemek, '', 18905, 0.13, 0.05, 0.02, -50.0, 16.0, 60.0, totalTime, true) 
--- 				local minAddStatusValue = 50.0
--- 				while totalTime > 0 do
--- 					Citizen.Wait(1000) -- 1 Saniye
--- 					totalTime = totalTime - 1000
--- 						local yeniDeger = aclik + minAddStatusValue 
--- 						aclik = yeniDeger
--- 						local yeniDeger = susuzluk + minAddStatusValue 
--- 						susuzluk = yeniDeger
---                         TriggerServerEvent("bad-hud:savedata:server", aclik, susuzluk)
---                         if yeniDeger > 100.0 then aclik = 100.0 end
--- 						if yeniDeger > 100.0 then susuzluk = 100.0 end
--- 				end
--- 			end
--- 		end, itemName, 1)
--- 	end
--- end)
-
-RegisterNetEvent('bad-basicneeds:sigara')
-AddEventHandler('bad-basicneeds:sigara', function()	
+RegisterNetEvent('agac-hud:sigara')
+AddEventHandler('agac-hud:sigara', function()	
             local i = 0
             QBCore.Functions.Progressbar("sigara", "Tüttürüyorsun", 20000, false, true, { -- p1: menu name, p2: yazı, p3: ölü iken kullan, p4:iptal edilebilir
                 disableMovement = false,
@@ -367,6 +343,6 @@ AddEventHandler('revlendinfulleustamk', function()
     if hungry < 50 or thirst < 50 then
         hungry = 50
         thirst = 50
-        TriggerServerEvent("bad-hud:savedata:server", hungry, thirst)
+        TriggerServerEvent("agac-hud:savedata:server", hungry, thirst)
     end
 end)
